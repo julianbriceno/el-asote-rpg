@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EL ASOTE DE LOS ESTUDIANTES - RPG Combat</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div class="portada" id="portada">
+    <div class="portada-content">
+        <div class="portada-title">⚔️ EL ASOTE ⚔️</div>
+        <div class="portada-subtitle">DE LOS ESTUDIANTES</div>
+        <div class="portada-description">
+            El Parcial ha tomado forma de un enemigo devastador.<br>
+            Solo resolviendo ejercicios de programación podrás derrotarlo.<br>
+            <br>
+            Cada algoritmo correcto = un golpe mortal.<br>
+            Cada error = el villano recupera fuerzas.<br>
+            <br>
+            ¿Estás listo para la batalla?
+        </div>
+        <button class="btn-start" onclick="startBattle()">⚔️ ENTRAR EN BATALLA ⚔️</button>
+    </div>
+</div>
+
+<!-- JUEGO PRINCIPAL -->
+<div class="game-container hidden" id="game-container">
+    <div class="game-header">
+        <div class="game-title">⚔️ COMBATE ÉPICO ⚔️</div>
+        <div class="game-level" id="game-level">RONDA 1 / 6</div>
+    </div>
+
+    <!-- INFORMACIÓN DEL EJERCICIO -->
+    <div class="exercise-info">
+        <div class="exercise-title" id="exercise-title">Ejercicio 1</div>
+        <div class="exercise-narrative" id="exercise-narrative"></div>
+        <div class="exercise-description" id="exercise-description"></div>
+    </div>
+
+    <!-- BATALLA: ESTUDIANTE | EDITOR | VILLANO -->
+    <div class="battle-layout">
+        <!-- ESTUDIANTE (IZQUIERDA) -->
+        <div class="character-side">
+            <div class="character-name">⚔️ TÚ ⚔️</div>
+            <div class="health-bar-mini">
+                <div class="health-bar-mini-fill" id="player-health-bar" style="width: 100%;">100%</div>
+            </div>
+            <div class="health-text-mini" id="player-health-text">100 / 100 HP</div>
+            <img src="../images/hero.png" alt="Estudiante" class="character-image">
+        </div>
+
+        <!-- EDITOR (CENTRO) -->
+        <div class="editor-center">
+            <div class="code-label">💻 TU CÓDIGO</div>
+            <textarea id="code-editor" placeholder="# Escribe tu solución aquí..."></textarea>
+            <div class="hints-tabs">
+                <div class="hint-tab active" onclick="switchHint(0)">💡 PISTA</div>
+                <div class="hint-tab" onclick="switchHint(1)">📖 SINTAXIS</div>
+            </div>
+            <div class="hint-content active" id="hint-0"></div>
+            <div class="hint-content" id="hint-1"></div>
+            <button class="btn-execute" id="btn-execute" onclick="executeCode()">⚡ ATACAR ⚡</button>
+        </div>
+
+        <!-- VILLANO (DERECHA) -->
+        <div class="character-side enemy">
+            <div class="character-name">⚔️ EL ASOTE ⚔️</div>
+            <div class="health-bar-mini">
+                <div class="health-bar-mini-fill" id="villain-health-bar" style="width: 100%;">100%</div>
+            </div>
+            <div class="health-text-mini" id="villain-health-text">600 / 600 HP</div>
+            <img src="../images/villain.png" alt="El Asote" class="character-image">
+        </div>
+    </div>
+
+    <!-- OUTPUT -->
+    <div class="output-panel">
+        <div class="output-label">📤 RESULTADO DE EJECUCIÓN</div>
+        <div id="output">// Escribe código y presiona ⚡ ATACAR</div>
+        <div id="result-msg"></div>
+    </div>
+</div>
+
+<!-- PANTALLA DE VICTORIA -->
+<div class="victory-screen hidden" id="victory-screen">
+    <div class="victory-content">
+        <div class="victory-title">🎊 ¡VICTORIA! 🎊</div>
+        <div class="victory-message">
+            ✨ ¡Has derrotado a EL ASOTE!<br>
+            El parcial ha sido vencido.<br>
+            Eres un verdadero PROGRAMADOR.<br>
+            🏆 CAMPAÑA COMPLETADA 🏆
+        </div>
+        <button class="btn-restart" onclick="location.reload()">🔄 REINICIAR BATALLA</button>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="../js/battles.js"></script>
+<script src="../js/game.js"></script>
+
+</body>
+</html>

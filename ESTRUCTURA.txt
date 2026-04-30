@@ -1,0 +1,245 @@
+╔════════════════════════════════════════════════════════════════════╗
+║         ⚔️  EL ASOTE DE LOS ESTUDIANTES - RPG COMBAT  ⚔️          ║
+║                    ESTRUCTURA DEL PROYECTO                         ║
+╚════════════════════════════════════════════════════════════════════╝
+
+el-asote-rpg/                          ← CARPETA PRINCIPAL
+│
+├── 📄 README.md                        ← Instrucciones generales
+├── 📄 ESTRUCTURA.txt                   ← Este archivo
+│
+│
+├─ 🌐 html/
+│  │
+│  └── 📄 index.html                    ⭐ ARCHIVO PRINCIPAL
+│                                       (Abre este en el navegador)
+│                                       
+│                                       Contenido:
+│                                       - Estructura HTML
+│                                       - Importa CSS y JS
+│                                       - Portada
+│                                       - Área de batalla
+│                                       - Editor de código
+│                                       - Pantalla de victoria
+│
+│
+├─ 🎨 css/
+│  │
+│  └── 📄 styles.css                    Diseño visual completo
+│                                       - Colores épicos
+│                                       - Animaciones
+│                                       - Responsive design
+│                                       - Temas (dorado/rojo)
+│
+│
+├─ ⚙️  js/
+│  │
+│  ├── 📄 battles.js                    Los 6 ejercicios/batallas
+│  │                                    - Datos de cada batalla
+│  │                                    - Narrativa épica
+│  │                                    - Descripción de ejercicios
+│  │                                    - Pistas y sintaxis
+│  │
+│  └── 📄 game.js                       Lógica del juego
+│                                       - Ejecución de Python
+│                                       - Manejo de batallas
+│                                       - Tests automáticos
+│                                       - Sistema de puntuación
+│
+│
+└─ 🖼️  images/
+   │
+   ├── 🎮 hero.png                      Imagen del estudiante/jugador
+   │                                    (mostrada a la izquierda)
+   │
+   └── 👹 villain.png                   Imagen de El Asote/villano
+                                        (mostrada a la derecha)
+
+
+═══════════════════════════════════════════════════════════════════════
+
+🔗 FLUJO DE CARGA
+
+1. Usuario abre: html/index.html
+2. HTML carga: css/styles.css (estilos)
+3. HTML carga: js/battles.js (datos de ejercicios)
+4. HTML carga: js/game.js (lógica del juego)
+5. Las imágenes se cargan desde: images/hero.png y images/villain.png
+
+═══════════════════════════════════════════════════════════════════════
+
+📝 RESPONSABILIDADES DE CADA ARCHIVO
+
+┌─ html/index.html ─────────────────────────────────────────┐
+│ • Estructura y elementos HTML                              │
+│ • Define divs para portada, juego, victoria               │
+│ • Importa CSS y JavaScript                                │
+│ • Contiene referencias a imágenes                         │
+└────────────────────────────────────────────────────────────┘
+
+┌─ css/styles.css ──────────────────────────────────────────┐
+│ • Colores, fuentes, tamaños                               │
+│ • Diseño del layout (3 columnas)                          │
+│ • Animaciones (pulsaciones, efectos)                      │
+│ • Responsive (funciona en móviles)                        │
+│ • Temas visuales (portada, batalla, victoria)             │
+└────────────────────────────────────────────────────────────┘
+
+┌─ js/battles.js ───────────────────────────────────────────┐
+│ • Array BATTLES con 6 objetos                             │
+│ • Cada batalla contiene:                                  │
+│   - title (título épico)                                  │
+│   - narrative (historia)                                  │
+│   - description (enunciado)                               │
+│   - hint (pista)                                          │
+│   - syntax (código de ejemplo)                            │
+│   - damage (daño al villano)                              │
+└────────────────────────────────────────────────────────────┘
+
+┌─ js/game.js ──────────────────────────────────────────────┐
+│ • runPython(code) → Ejecuta código con Skulpt             │
+│ • startBattle() → Inicia el juego                        │
+│ • renderBattle() → Muestra batalla actual                │
+│ • executeCode() → Valida respuesta del estudiante        │
+│ • updateHealthBar() → Actualiza vida del villano        │
+│ • showVictory() → Pantalla de victoria final             │
+│ • getTestsForBattle() → Tests para cada ejercicio        │
+└────────────────────────────────────────────────────────────┘
+
+┌─ images/ ────────────────────────────────────────────────┐
+│ hero.png     → 400x500px (estudiante/jugador)            │
+│ villain.png  → 400x500px (El Asote/enemigo)              │
+│                                                           │
+│ ⚠️  IMPORTANTE:                                            │
+│ • Nombres EXACTOS (minúsculas)                           │
+│ • Formato PNG, JPG o GIF                                 │
+│ • En la carpeta: el-asote-rpg/images/                   │
+└───────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════
+
+🎮 CÓMO FUNCIONA EL JUEGO
+
+┌─────────────────────────────────────────────────────────┐
+│  PASO 1: Usuario abre index.html en navegador           │
+└─────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  PASO 2: Se muestra PORTADA (pantalla de inicio)        │
+│  - Título épico                                          │
+│  - Botón "ENTRAR EN BATALLA"                            │
+└─────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  PASO 3: Usuario presiona botón                         │
+│  startBattle() se ejecuta en game.js                    │
+└─────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  PASO 4: Se muestra BATALLA 1                           │
+│  - Información del ejercicio (de battles.js)             │
+│  - Layout: ESTUDIANTE | EDITOR | VILLANO               │
+│  - Imágenes: hero.png y villain.png cargadas            │
+└─────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  PASO 5: Usuario escribe código en editor               │
+│  - Presiona botón "⚡ ATACAR ⚡"                         │
+│  - executeCode() ejecuta en game.js                     │
+└─────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  PASO 6: Código se ejecuta con Skulpt                   │
+│  - runPython() compila el código                        │
+│  - Se ejecutan los tests automáticos                    │
+└─────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  PASO 7: Validación                                      │
+│  - SI: Correcto → Daño al villano (-100 HP)            │
+│  - NO: Error → Intenta de nuevo                         │
+└─────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  PASO 8: Siguiente batalla (si villano > 0 HP)          │
+│  - renderBattle() carga batalla 2                       │
+│  - Repite pasos 4-8                                     │
+└─────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  PASO 9: Victoria (después de 6 batallas)               │
+│  - showVictory() muestra pantalla de victoria           │
+│  - Efectos visuales épicos                              │
+└─────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════
+
+📌 IMÁGENES - REFERENCIAS EN EL CÓDIGO
+
+En html/index.html, las imágenes se referencian así:
+
+<img src="../images/hero.png" alt="Estudiante" class="character-image">
+<img src="../images/villain.png" alt="El Asote" class="character-image">
+
+La ruta "../images/" significa:
+  - .. = sube una carpeta (de html/ a el-asote-rpg/)
+  - images/ = entra a carpeta images
+
+═══════════════════════════════════════════════════════════════════════
+
+🎨 PERSONALIZACIÓN RÁPIDA
+
+CAMBIAR COLORES:
+  Archivo: css/styles.css
+  Busca: #d4af37 (dorado) y #ff4444 (rojo)
+  Reemplaza con nuevo color hex
+
+CAMBIAR EJERCICIOS:
+  Archivo: js/battles.js
+  Edita: objeto BATTLES[0], BATTLES[1], etc.
+
+CAMBIAR TEXTOS:
+  Archivo: js/battles.js
+  Edita: title, narrative, description, hint
+
+CAMBIAR IMÁGENES:
+  Carpeta: images/
+  Reemplaza: hero.png y villain.png
+  (Mantén los mismos nombres)
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ CHECKLIST ANTES DE JUGAR
+
+[_] Carpeta el-asote-rpg descargada
+[_] Carpeta images/ tiene hero.png
+[_] Carpeta images/ tiene villain.png
+[_] Nombres exactos (sin mayúsculas)
+[_] Archivo html/index.html existe
+[_] Archivos css/styles.css existe
+[_] Archivos js/battles.js existe
+[_] Archivo js/game.js existe
+[_] Navegador moderno (Chrome/Firefox)
+[_] Conexión a internet
+[_] ¡LISTO PARA JUGAR!
+
+═══════════════════════════════════════════════════════════════════════
+
+📞 SOPORTE RÁPIDO
+
+Problema: No carga nada
+Solución: Usa servidor local (python -m http.server 8000)
+
+Problema: Imágenes no aparecen
+Solución: Verifica nombres exactos y ruta de carpeta
+
+Problema: Código no ejecuta
+Solución: Recarga página (Ctrl+R) e intenta de nuevo
+
+Problema: Botones no responden
+Solución: Abre consola (F12) y busca errores
+
+═══════════════════════════════════════════════════════════════════════
+
+¡A DERROTAR A EL ASOTE! ⚔️
+
